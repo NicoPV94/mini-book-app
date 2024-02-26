@@ -1,0 +1,8 @@
+<div class="container-fluid h-50 d-flex align-items-center justify-content-center">
+    <app-book-form *ngIf="book"
+        [title]="formTitle"
+        [description]="formDescription"
+        [book]="book"
+        [preserveOnSubmit]="true"
+        (onSubmitBook)="onBookUpdated($event)"></app-book-form>
+</div>

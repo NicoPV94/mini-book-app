@@ -1,0 +1,26 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="book-form d-flex flex-column">
+    <h2 class="mb-0">{{title}}</h2>
+    <p class="mb-0">{{description}}</p>
+    <hr class="hr"/>
+    <div class="form-group mb-3">
+        <label for="bookTitle">Title</label>
+        <input id="bookTitle" formControlName="title" class="form-control" type="text" required>
+        <div *ngIf="bookForm.get('title')?.invalid && (bookForm.get('title')?.touched || bookForm.get('title')?.dirty)">
+            <div *ngIf="bookForm.get('title')?.errors?.['required']" style="color: red">
+              Title is required.
+            </div>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <label for="bookAuthor">Author</label>
+        <input id="bookAuthor" formControlName="author" class="form-control" type="text" required>
+        <div *ngIf="bookForm.get('author')?.invalid && (bookForm.get('author')?.touched || bookForm.get('author')?.dirty)">
+            <div *ngIf="bookForm.get('author')?.errors?.['required']" style="color: red">
+              Author is required.
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary w-25" type="submit">Submit</button>
+    </div>
+</form>
